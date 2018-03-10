@@ -280,12 +280,9 @@ void select_rfid() {
 }
 void time_sd(String content){
   select_sd();
- // delay(1000);
+  /* Creates a new file named logs to keep track of every entrance */ 
   myFile = SD.open("logs.txt", FILE_WRITE);
-  Serial.println("1.sd aktif");
-  Serial.print("İlk myfiledegeri:");
   Serial.println(myFile);
-  Serial.println("sd fonksiyonu");
   if (myFile) {
 
   Serial.begin(9600);
@@ -293,16 +290,15 @@ void time_sd(String content){
   mfrc522.PCD_Init();
   SD.begin(CS_pin);
   while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
+    ; // Wait for serial port to connect. Needed for native USB port only
   }
   pinMode(SS_PIN, OUTPUT);
   digitalWrite(CS_pin, LOW);
   pinMode(ledPin, OUTPUT);
-  /* Burası ekleme */
-    
-    Serial.println("2.sd actim if icindeyim");
-    myFile.println(content);
-    DateTime now = RTC.now(); 
+  /* Here it adds time info */
+   
+    myFile.println(content); // Card INFO
+    DateTime now = RTC.now(); // Time INFO
     myFile.print(now.month(), DEC);
     myFile.print('/');
     myFile.print(now.day(), DEC);
@@ -315,16 +311,14 @@ void time_sd(String content){
     myFile.print(':');
     myFile.print(now.second(), DEC);
     myFile.println();    
-    delay(1000);//kaydetmesi icin
+    delay(100);// Needs a bit delay to save
     myFile.close();
     Serial.println("E N T R Y ");
     Serial.println(content);
     Serial.println();
-        Serial.println("saat kaydedildi*** ");
+    Serial.println("Time info has been written to SD.*** ");
   }
   else {
-    Serial.println("3.SD ACAMADİM");
-
     Serial.println("Couldn't Access File");
   }
 
