@@ -8,4 +8,4 @@ SPI,
 SdFat,
 RTClib
 
-Those can be downloaded from Arduino IDE.
+Those can be downloaded from Arduino IDE or can be found by quick google search.
