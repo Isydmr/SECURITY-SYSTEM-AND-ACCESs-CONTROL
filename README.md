@@ -4,7 +4,8 @@ Libraries can be found at:
 github: miguelbalboa/rfid
 
 Also needs:
-SPI
-SdFat
+SPI,
+SdFat,
 RTClib
+
 Those can be downloaded from Arduino IDE.
