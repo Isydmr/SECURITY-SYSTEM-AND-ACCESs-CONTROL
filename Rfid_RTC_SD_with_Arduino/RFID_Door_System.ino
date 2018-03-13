@@ -5,6 +5,7 @@
 #include "RTClib.h"
 
 #define RST_PIN 9
+//Bu rfid pinidir
 #define SS_PIN 10
 #define ledPin 7
 #define CS_pin 4
