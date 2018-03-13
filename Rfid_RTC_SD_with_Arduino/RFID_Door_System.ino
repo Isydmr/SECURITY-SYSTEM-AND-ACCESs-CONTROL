@@ -263,7 +263,7 @@ void sdcard_ackapa(String content) {
   delay(3000);
   myFile.close();
 }
-/* Select_Slave utility function 2, USE SD ! */
+/* Select_Slave utility function 1, USE SD ! */
 void select_sd() {
   pinMode(SS_PIN, HIGH);
   delay(200);
