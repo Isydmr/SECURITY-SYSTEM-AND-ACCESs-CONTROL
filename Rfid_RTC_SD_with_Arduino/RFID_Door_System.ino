@@ -282,25 +282,19 @@ void time_sd(String content){
   select_sd();
  // delay(1000);
   myFile = SD.open("logs.txt", FILE_WRITE);
-  Serial.println("1.sd aktif");
-  Serial.print("İlk myfiledegeri:");
   Serial.println(myFile);
-  Serial.println("sd fonksiyonu");
   if (myFile) {
-
   Serial.begin(9600);
   SPI.begin();
   mfrc522.PCD_Init();
   SD.begin(CS_pin);
   while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
+    ; // Waits for serial port to connect. Needed for native USB port only
   }
   pinMode(SS_PIN, OUTPUT);
   digitalWrite(CS_pin, LOW);
   pinMode(ledPin, OUTPUT);
-  /* Burası ekleme */
-    
-    Serial.println("2.sd actim if icindeyim");
+  /* Now, it writes time info to sd*/
     myFile.println(content);
     DateTime now = RTC.now(); 
     myFile.print(now.month(), DEC);
@@ -315,22 +309,18 @@ void time_sd(String content){
     myFile.print(':');
     myFile.print(now.second(), DEC);
     myFile.println();    
-    delay(1000);//kaydetmesi icin
+    delay(300);//Delay to save properly
     myFile.close();
-    Serial.println("E N T R Y ");
-    Serial.println(content);
+//  Serial.println(content);
+//  Might be useful for debug purposes
     Serial.println();
-        Serial.println("saat kaydedildi*** ");
+    Serial.println("Time info has succesfully written to SD Card.");
   }
   else {
-    Serial.println("3.SD ACAMADİM");
-
     Serial.println("Couldn't Access File");
   }
-
-  delay(3000);
+  delay(500);
   myFile.close();
-    
 }
 
    
