@@ -3,7 +3,7 @@
 #include <Wire.h>
 #include "SdFat.h"
 #include "RTClib.h"
-
+//master 
 #define RST_PIN 9
 #define SS_PIN 10
 #define ledPin 7
