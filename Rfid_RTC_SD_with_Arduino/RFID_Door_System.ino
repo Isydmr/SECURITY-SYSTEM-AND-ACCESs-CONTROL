@@ -3,11 +3,11 @@
 #include <Wire.h>
 #include "SdFat.h"
 #include "RTClib.h"
-//master 
-#define RST_PIN 9
-#define SS_PIN 10
+
+#define RST_PIN 9 
+#define SS_PIN 10 //RFID Slave PIN --> 10 
 #define ledPin 7
-#define CS_pin 4
+#define CS_pin 4  //SD Card Module Slave PIN -->4
 
 SdFat SD;
 MFRC522 mfrc522(SS_PIN, RST_PIN);
@@ -221,13 +221,13 @@ void card_register(String rfid) {
     Serial.print("This UID will be written to SD: ");
     Serial.println(content);
     // Give this new Card UID to SD
-    sdcard_ackapa(content);
+    write_sd(content);
   }
   Serial.println("New Card Registered To SD Card.");
   Serial.println();
 }
 
-void sdcard_ackapa(String content) {
+void write_sd(String content) {
   select_sd();
  
   myFile = SD.open("test.txt", FILE_WRITE);
