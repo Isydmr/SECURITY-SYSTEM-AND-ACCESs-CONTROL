@@ -187,7 +187,7 @@ int getID() {
  * Without interrupting system, 
  * saves new card's UID to SD.
  * After Admin Card read by system,
- * this function prints new Cards UID,
+ * this function prints new Card's UID,
  * if it reads any card within 3 sec.
  */
 void card_register(String rfid) {
