@@ -108,9 +108,7 @@ void loop()
     delay(2000);
     digitalWrite(ledPin, LOW);
   }
-  rfid = "";
-  Serial.println();
-  delay(200);
+   delay(200);
 
 }
 int readSD(String UID)
