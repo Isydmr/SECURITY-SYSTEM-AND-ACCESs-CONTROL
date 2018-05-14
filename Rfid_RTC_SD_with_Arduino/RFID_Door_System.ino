@@ -85,7 +85,7 @@ void loop()
    */
   if (rfid == "94 06 C6 D5") {
     card_register(rfid);
-    Serial.print("Kart Kayit Bitti-----\n");
+    Serial.print("Card succesfully registered-----\n");
   }
   Serial.print("Card UID:");
   // Another standardization to remove white-spaces
