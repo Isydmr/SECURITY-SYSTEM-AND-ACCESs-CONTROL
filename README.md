@@ -1,8 +1,8 @@
 
 Access Control System With Arduino UNO, RFID-MFRC522, DS1307RTC, 12 V Relay, MicroSD Card Module.
 
-RFID library can be found at:
-github: miguelbalboa/rfid
+RFID library used in this project can be found at:
+https://github.com/miguelbalboa/rfid
 
 Also needs:
 SPI,
